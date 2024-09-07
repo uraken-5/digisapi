@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<!--Trate de dejar bien documentado todo el HTML, JS y CSS utilizados por si a alguien mas le puede servir :)
+Las tildes fueron omitidas al propio. Mobile first. Quise usar colores sobrios.-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,57 @@
     <!--CSS-->
     <link href="assets/digivice.css" type="text/css" rel="stylesheet">
 </head>
+<!--Al cargar la pagina se llama de inmediato a la funcion tabla-->
+<body onload="tabla()">
+    <!--Inicio Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/imagenes/digivice.png" alt="Logo" width="50" height="50"
+                    class="d-inline-block align-text-center">
+                Digivice
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="tabla()">Tabla</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="grilla()">Grilla</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="select()">Selector</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Fin Navbar-->
+    <br>
+    <div class="card text-center mx-auto tableW">
+        <div class="card-body">
+            <p class="card-text">En el menú puedes seleccionar 3 modos para desplegar los datos, en cada uno de ellos
+                puedes seleccionar un Digimon para desplegar sus datos individualmente.</p>
+        </div>
+    </div>
+    <br>
+    <!--<div> principal donde se desplegaran los datos-->
+    <div id="digiData" class="">
+    </div>
 
-<body">
-    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="divModal">
+            </div>
+        </div>
+    </div>
     <!--  Popper / JS Bundle 5.2.3 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
